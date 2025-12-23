@@ -236,6 +236,8 @@ function buildKpiDescriptors(stats?: ContractStatsResponse | null): KpiDescripto
   // Generate realistic sparklines based on actual data distribution
   // Since we don't have historical time-series data, we'll create a progression
   // that reflects the current state in a meaningful way
+  // we need to make this more realistic
+  // TODO: Replace with real historical data when available
   
   // Total Contracts: Show progression to current total (simulating growth over 7 periods)
   const totalSparkline = totalContracts > 0
