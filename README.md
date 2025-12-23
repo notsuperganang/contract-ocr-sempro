@@ -88,40 +88,40 @@ An intelligent document processing system that:
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         Frontend (React)                        │
-│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────────┐ │
-│  │  Dashboard  │  │ Upload Page  │  │  Review Interface      │ │
-│  │  (KPI Cards)│  │ (Batch Drop) │  │  (Split View: PDF +    │ │
-│  │             │  │              │  │   Editable Form)       │ │
-│  └─────────────┘  └──────────────┘  └────────────────────────┘ │
+│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────────┐  │
+│  │  Dashboard  │  │ Upload Page  │  │  Review Interface      │  │
+│  │  (KPI Cards)│  │ (Batch Drop) │  │  (Split View: PDF +    │  │
+│  │             │  │              │  │   Editable Form)       │  │
+│  └─────────────┘  └──────────────┘  └────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                               │ REST API
 ┌─────────────────────────────────────────────────────────────────┐
 │                      Backend (FastAPI)                          │
-│  ┌──────────────┐  ┌─────────────────┐  ┌──────────────────┐  │
-│  │ Upload API   │  │  OCR Service    │  │  Contract API    │  │
-│  │ (Multi-file) │  │  (PP-Structure  │  │  (CRUD + Export) │  │
-│  │              │  │   V3 Pipeline)  │  │                  │  │
-│  └──────────────┘  └─────────────────┘  └──────────────────┘  │
+│  ┌──────────────┐  ┌─────────────────┐  ┌──────────────────┐    │
+│  │ Upload API   │  │  OCR Service    │  │  Contract API    │    │
+│  │ (Multi-file) │  │  (PP-Structure  │  │  (CRUD + Export) │    │
+│  │              │  │   V3 Pipeline)  │  │                  │    │
+│  └──────────────┘  └─────────────────┘  └──────────────────┘    │
 │         │                  │                      │             │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │          Data Extractor (Stateless Functions)            │  │
-│  │  - Regex patterns for Indonesian contracts               │  │
-│  │  - Fuzzy matching for OCR error handling                 │  │
-│  │  - Two-page extraction strategy                          │  │
-│  └──────────────────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │          Data Extractor (Stateless Functions)            │   │
+│  │  - Regex patterns for Indonesian contracts               │   │
+│  │  - Fuzzy matching for OCR error handling                 │   │
+│  │  - Two-page extraction strategy                          │   │
+│  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
 ┌─────────────────────────────────────────────────────────────────┐
 │                    PostgreSQL Database                          │
-│  ┌─────────────┐  ┌──────────────────┐  ┌──────────────────┐  │
-│  │   files     │  │ processing_jobs  │  │    contracts     │  │
-│  │             │  │  (Queue + Draft) │  │  (Final Data)    │  │
-│  └─────────────┘  └──────────────────┘  └──────────────────┘  │
+│  ┌─────────────┐  ┌──────────────────┐  ┌──────────────────┐    │
+│  │   files     │  │ processing_jobs  │  │    contracts     │    │
+│  │             │  │  (Queue + Draft) │  │  (Final Data)    │    │
+│  └─────────────┘  └──────────────────┘  └──────────────────┘    │
 │                          │                                      │
-│                  ┌───────────────────────┐                     │
-│                  │ contract_term_payments│                     │
-│                  │  (Payment Tracking)   │                     │
-│                  └───────────────────────┘                     │
+│                  ┌───────────────────────┐                      │
+│                  │ contract_term_payments│                      │
+│                  │  (Payment Tracking)   │                      │
+│                  └───────────────────────┘                      │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
